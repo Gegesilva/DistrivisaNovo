@@ -35,13 +35,13 @@ tbody td.fixed {
 
 thead th.fixed2 {
     position: sticky;
-    left: 220;
+    left: 300;
     z-index: 3;
     background-color: rgb(234, 230, 230);
 }
 tbody td.fixed2 {
     position: sticky;
-    left: 220;
+    left: 300;
     background-color: white;
     z-index: 1;
 }

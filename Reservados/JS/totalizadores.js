@@ -23,7 +23,7 @@ function calculateTotals() {
             totalValorIPI += parseCurrency(row.cells[3].textContent);
             totalST += parseCurrency(row.cells[4].textContent);
             totalDifalST += parseCurrency(row.cells[5].textContent); */
-            totalValorFinal += parseCurrency(row.cells[8].textContent);
+            totalValorFinal += parseCurrency(row.cells[7].textContent);
         });
     
         /* document.getElementById('totalValorBase').textContent = formatToCurrency(totalValorBase);

@@ -21,7 +21,11 @@ function filtroEstado($conn)
 
 function filtroCondicao($conn)
 {
-    $sql = "SELECT TB01014_NOME CondRec, TB01014_CODIGO Cod FROM TB01014 WHERE TB01014_SITUACAO = 'A'";
+    $sql = "SELECT 
+                TB01014_NOME CondRec, 
+                TB01014_CODIGO Cod 
+            FROM TB01014
+            WHERE TB01014_SITUACAO = 'A'";
 
     $stmt = sqlsrv_query($conn, $sql);
 
