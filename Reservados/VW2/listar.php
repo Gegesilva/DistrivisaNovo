@@ -62,7 +62,7 @@ $usuario = $_POST['usuario'];
                     <th style = "text-align:center;" data-type="date">DATA</th>
                     <th style = "text-align:center;" data-type="text">CLIENTE</th>
                     <th style = "text-align:center;" data-type="numeric">QUANTIDADE</th>
-                    <th style = "text-align:center;" data-type="numeric">VLR EMBALAGEM</th>
+                    <!-- <th style = "text-align:center;" data-type="numeric">VLR EMBALAGEM</th> -->
                     <th style = "text-align:center;" data-type="numeric">VALOR TOTAL</th>
                 </tr>
             </thead>
@@ -95,7 +95,7 @@ $usuario = $_POST['usuario'];
                     $tabela .= "<td style='text-align:center;'>" . $row['Data'] . "</td>";
                     $tabela .= "<td style='text-align:center;'>" . $row['NomeCli'] . "</td>";
                     $tabela .= "<td style='text-align:center;'>" . $row['QtProd'] . "</td>";
-                    $tabela .= "<td style='text-align:center;'>" . $row['vlrEmbalagem'] . "</td>";
+                    /* $tabela .= "<td style='text-align:center;'>" . $row['vlrEmbalagem'] . "</td>"; */
                     $tabela .= "<td style='text-align:center;'>" . $row['ValorTotal'] . "</td>";
                     $tabela .= "</tr>";
                 }
