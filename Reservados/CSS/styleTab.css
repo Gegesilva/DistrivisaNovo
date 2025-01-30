@@ -1,0 +1,136 @@
+th, td {
+    white-space: nowrap;
+    border-radius: 15px;
+}
+.table-container {
+    overflow-x: auto;
+    overflow-y: auto;
+    background-color: white;
+    border-radius: 15px;
+    border: 1px solid #000000;
+    width: 100vw; /* 100% da largura da tela */
+    height: 80vh; /* 100% da altura da tela */
+}
+thead th.sticky {
+    position: sticky;
+    top: 0;
+    background-color: rgb(234, 230, 230);
+    z-index: 2;
+}
+
+/* fixa cabeçalho colunas tela inicial */
+thead th.fixed {
+    position: sticky;
+    left: 0;
+    z-index: 3;
+    background-color: rgb(234, 230, 230);
+}
+tbody td.fixed {
+    position: sticky;
+    left: 0;
+    background-color: white;
+    z-index: 1;
+}
+
+
+thead th.fixed2 {
+    position: sticky;
+    left: 220;
+    z-index: 3;
+    background-color: rgb(234, 230, 230);
+}
+tbody td.fixed2 {
+    position: sticky;
+    left: 220;
+    background-color: white;
+    z-index: 1;
+}
+
+
+/* fixa cabeçalho colunas preco */
+thead th.fixed-preco {
+  position: sticky;
+  left: 0;
+  z-index: 3;
+  background-color: rgb(234, 230, 230);
+}
+tbody td.fixed-preco {
+  position: sticky;
+  left: 0;
+  background-color: white;
+  z-index: 1;
+}
+
+
+thead th.fixed2-preco {
+  position: sticky;
+  left: 220;
+  z-index: 3;
+  background-color: rgb(234, 230, 230);
+}
+tbody td.fixed2-preco {
+  position: sticky;
+  left: 220;
+  background-color: white;
+  z-index: 1;
+}
+
+
+/* filtros agrupados */
+
+.filter-container {
+    position: relative;
+    width: 100%;
+  }
+
+  .filter-input {
+    width: 100%;
+    padding: 5px;
+    margin-bottom: 5px;
+    box-sizing: border-box;
+    /* Para garantir que o input ocupe toda a largura disponível */
+  }
+
+  .dropdown {
+    display: none;
+    position: absolute;
+    background-color: white;
+    border: 1px solid #ddd;
+    width: calc(100% - 10px);
+    /* Ajuste de largura para não cortar */
+    max-height: 200px;
+    overflow-y: auto;
+    z-index: 10000;
+    /* Garantir que a lista fique na frente de tudo */
+    padding: 5px;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+    margin-top: 5px;
+    /* Distância entre o input e a lista */
+  }
+
+  .dropdown-item {
+    display: flex;
+    align-items: center;
+    margin-bottom: 5px;
+  }
+
+  .dropdown-item label {
+    margin-left: 5px;
+    cursor: pointer;
+  }
+
+  .apply-button {
+    display: block;
+    padding: 5px;
+    text-align: center;
+    background-color: #007BFF;
+    color: white;
+    border: none;
+    cursor: pointer;
+    margin-top: 5px;
+    width: 100%;
+  }
+
+  .apply-button:hover {
+    background-color: #0056b3;
+  }

@@ -1,0 +1,102 @@
+body {
+    font-family: Arial, sans-serif;
+    /* display: flex; */
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-image: url("../img/databitoriginal-escura.jpg");
+    margin: 0;
+
+    background: white;
+    width: 100vw; 
+    height: 100vh;
+    overflow: auto;
+
+    overflow: hidden; 
+    overflow-y: scroll; 
+    scrollbar-width: none; 
+    -ms-overflow-style: none; 
+}
+
+
+
+
+.table{
+    width: 100%; /* A tabela ocupa toda a largura da div */
+    border-collapse: collapse; /* Remove espaçamento entre as células */
+}
+
+.cabecalho-result {
+    width: 100%;
+    border: 1px solid #000; /* Borda em volta do cabeçalho */
+    padding: 10px;
+    font-family: Arial, sans-serif;
+    font-size: 12px;
+    margin-bottom: 20px;
+}
+
+.cabecalho-result img {
+    width: 80px;
+    float: left; /* Alinha a logo à esquerda */
+    margin-right: 20px;
+}
+
+.cabecalho-result h6 {
+    margin: 2px 0;
+    font-size: 12px;
+    font-weight: normal;
+}
+
+.cabecalho-result .info-bloco {
+    display: inline-block;
+    vertical-align: top;
+    width: calc(100% - 100px); /* O bloco de texto ocupa o espaço restante após a imagem */
+}
+
+.cabecalho-result .info-bloco div {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 5px;
+}
+
+.cabecalho-result .info-bloco div span {
+    display: inline-block;
+    width: 48%; /* As informações estão lado a lado */
+    padding: 5px;
+    box-sizing: border-box;
+    background-color: #f5f5f5; /* Cor de fundo leve para imitar a DANFE */
+}
+
+.logo{
+    height: auto;
+    width: auto;
+}
+
+.obs{
+    /* display: flex; */
+    justify-content: center;
+    color: red;
+    flex-wrap: wrap;
+  }
+
+  .obs-ins{
+    display: flex;
+    justify-content: center;
+    color: black;
+  }
+
+  .obstotal{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+  }
+
+.titulo{
+    justify-content: center;
+    display: flex;
+    margin-bottom: 10px;
+    font-family: serif;
+    text-decoration: underline;
+    color: grey;
+}

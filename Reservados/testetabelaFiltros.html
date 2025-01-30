@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tabela com Filtros</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+        }
+
+        .filter-container {
+            margin: 20px;
+        }
+
+        .filter-container input,
+        button {
+            margin-right: 10px;
+            padding: 5px 10px;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+
+        th,
+        td {
+            border: 1px solid #ddd;
+            padding: 8px;
+            text-align: center;
+        }
+
+        th {
+            background-color: #f4f4f4;
+        }
+
+        button {
+            cursor: pointer;
+        }
+
+        .btn-aplicar {
+            background-color: #32cd32;
+            color: white;
+        }
+
+        .btn-resetar {
+            background-color: #ffd700;
+            color: black;
+        }
+
+        .btn-editar,
+        .btn-deletar {
+            padding: 4px 8px;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Filtro -->
+    <div class="filter-container">
+        <label for="filtro-produto">Produto:</label>
+        <input type="text" id="filtro-produto" placeholder="Digite o código">
+        <button class="btn-aplicar" onclick="aplicarFiltro()">Aplicar</button>
+        <button class="btn-resetar" onclick="resetarFiltro()">Resetar</button>
+    </div>
+
+    <!-- Tabela -->
+    <table id="tabela-produtos">
+        <thead>
+            <tr>
+                <th>PRODUTO</th>
+                <th>NOME</th>
+                <th>VALIDA 1</th>
+                <th>VALIDA 2</th>
+                <th>FAIXA</th>
+                <th>EDITAR</th>
+                <th>DELETAR</th>
+            </tr>
+        </thead>
+        <tbody id="tabela-corpo">
+            <!-- Dados são carregados aqui dinamicamente -->
+        </tbody>
+    </table>
+
+    <script>
+        // Dados da tabela para simular conteúdo inicial
+        const dados = [
+            { produto: '20151', nome: '<60K', valida1: '60001', valida2: '0', faixa: '1.6000' },
+            { produto: '20151', nome: '>60K<150K', valida1: '150001', valida2: '60000', faixa: '1.3000' },
+            { produto: '20151', nome: '>150K<300K', valida1: '300001', valida2: '150000', faixa: '1.1500' },
+            { produto: '20153', nome: '<60K', valida1: '60001', valida2: '0', faixa: '1.6000' },
+            { produto: '20160', nome: '>300K', valida1: '999999999', valida2: '300000', faixa: '1.0000' },
+        ];
+
+        let dadosFiltrados = [...dados]; // Dados filtrados para controle
+
+        // Função para carregar dados na tabela
+        function carregarTabela() {
+            const tbody = document.getElementById('tabela-corpo');
+            tbody.innerHTML = ''; // Limpa o conteúdo da tabela
+
+            dadosFiltrados.forEach((linha, index) => {
+                const row = `
+                    <tr>
+                        <td>${linha.produto}</td>
+                        <td>${linha.nome}</td>
+                        <td>${linha.valida1}</td>
+                        <td>${linha.valida2}</td>
+                        <td>${linha.faixa}</td>
+                        <td><button class="btn-editar" onclick="editarLinha(${index})">Editar</button></td>
+                        <td><button class="btn-deletar" onclick="deletarLinha(${index})">Deletar</button></td>
+                    </tr>
+                `;
+                tbody.insertAdjacentHTML('beforeend', row);
+            });
+        }
+
+        // Função para aplicar o filtro na tabela
+        function aplicarFiltro() {
+            const filtro = document.getElementById('filtro-produto').value;
+            dadosFiltrados = dados.filter(d => d.produto.includes(filtro));
+            carregarTabela();
+        }
+
+        // Função para resetar o filtro
+        function resetarFiltro() {
+            dadosFiltrados = [...dados];
+            document.getElementById('filtro-produto').value = '';
+            carregarTabela();
+        }
+
+        // Função para editar uma linha
+        function editarLinha(index) {
+            const linha = dadosFiltrados[index];
+            const form = document.createElement('form');
+            form.method = 'POST';
+            form.action = 'editar.php';
+
+            // Adiciona campos ao formulário
+            Object.keys(linha).forEach(chave => {
+                const input = document.createElement('input');
+                input.type = 'hidden';
+                input.name = chave;
+                input.value = linha[chave];
+                form.appendChild(input);
+            });
+
+            document.body.appendChild(form);
+            form.submit();
+        }
+
+        // Função para deletar uma linha via AJAX
+        function deletarLinha(index) {
+            const linha = dadosFiltrados[index];
+
+            fetch('deletar.php', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify(linha)
+            })
+                .then(response => response.text())
+                .then(data => {
+                    console.log(data);
+                    dadosFiltrados.splice(index, 1); // Remove a linha filtrada
+                    carregarTabela(); // Recarrega a tabela
+                })
+                .catch(error => console.error('Erro:', error));
+        }
+
+        // Carrega a tabela ao iniciar
+        carregarTabela();
+    </script>
+</body>
+
+</html>

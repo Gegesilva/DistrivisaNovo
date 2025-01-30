@@ -1,0 +1,170 @@
+.submit-btn {
+    display: block;
+    width: 30%;
+    padding: 10px;
+    background: rgba(0, 0, 255, 0.568);
+    color: white;
+    border: none;
+    border-radius: 20px;
+    font-size: 16px;
+    cursor: pointer;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.popup-btn {
+    display: block;
+    width: 30%;
+    padding: 10px;
+    background: rgba(95, 240, 76, 0.637);
+    color: white;
+    border: none;
+    border-radius: 20px;
+    font-size: 16px;
+    cursor: pointer;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.voltar-btn {
+    display: block;
+    width: 30%;
+    padding: 20px;
+    background: rgba(95, 240, 76, 0.637);
+    color: white;
+    border: none;
+    border-radius: 20px;
+    font-size: 16px;
+    cursor: pointer;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.voltar-btn-form {
+    display: block;
+    width: 25%;
+    padding: 20px;
+    background: rgba(95, 240, 76, 0.637);
+    color: white;
+    border: none;
+    border-radius: 20px;
+    font-size: 16px;
+    cursor: pointer;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 3px;
+    text-align: center;
+}
+
+@media print {
+    .voltar-btn-form {
+        display: none;
+    }
+}
+
+.voltar-btn:hover {
+    background: rgb(23, 131, 9);
+}
+
+.voltar-btn-form:hover {
+    background: rgb(23, 131, 9);
+}
+
+.submit-btn:hover {
+    background: rgb(3, 3, 204);
+}
+
+.popup-btn:hover {
+    background: rgb(70, 177, 55);
+}
+
+.btn-index {
+    display: flex;
+}
+
+.btn-solic-btn {
+    float: right;
+    display: flex;
+}
+
+
+.btn-req {
+    min-width: 30px;
+    min-height: 6px;
+    display: inline-flex;
+    font-family: 'Nunito', sans-serif;
+    font-size: 15px;
+    align-items: center;
+    justify-content: center;
+    text-transform: uppercase;
+    text-align: center;
+    letter-spacing: 1.3px;
+    font-weight: 700;
+    color: white;
+    background: #4f78d1;
+    background: linear-gradient(90deg, rgb(129, 173, 230) 0%, rgb(79, 151, 209) 100%);
+    border: none;
+    border-radius: 1000px;
+    box-shadow: 12px 12px 24px rgba(79, 168, 209, 0.64);
+    transition: all 0.3s ease-in-out 0s;
+    cursor: pointer;
+    outline: none;
+    position: relative;
+    padding: 10px;
+}
+
+
+
+.btn-req:hover,
+.btn-req:focus {
+    color: #313133;
+    transform: translateY(-6px);
+}
+
+.btn-req:hover::before,
+.btn-req:focus::before {
+    opacity: 1;
+}
+
+.btn-req::after {
+    content: '';
+    width: 30px;
+    height: 6px;
+    border-radius: 100%;
+    border: 6px solid #5193f7;
+    position: absolute;
+    z-index: -1;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    animation: ring 1.5s infinite;
+}
+
+.btn-req:hover::after,
+.btn-req:focus::after {
+    animation: none;
+    display: none;
+}
+
+.buttons-forms {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    text-align: center;
+    justify-content: space-around;
+}
+
+
+@keyframes ring {
+    0% {
+        width: 30px;
+        height: 30px;
+        opacity: 1;
+    }
+
+    100% {
+        width: 100px;
+        height: 100px;
+        opacity: 0;
+    }
+}
